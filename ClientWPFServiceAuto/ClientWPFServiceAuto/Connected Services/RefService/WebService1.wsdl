@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AdaugaMasina">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="numar" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="marca" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="problema" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdaugaMasinaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdaugaMasinaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ObtineMasini">
+        <s:complexType />
+      </s:element>
+      <s:element name="ObtineMasiniResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ObtineMasiniResult" type="tns:ArrayOfMasina" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMasina">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Masina" nillable="true" type="tns:Masina" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Masina">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumarInmatriculare" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Marca" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Problema" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="StergeMasina">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StergeMasinaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="StergeMasinaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificaMasina">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="numar" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="marca" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="problema" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ModificaMasinaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ModificaMasinaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CautaMasina">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="numarCautat" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CautaMasinaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CautaMasinaResult" type="tns:ArrayOfMasina" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AdaugaMasinaSoapIn">
+    <wsdl:part name="parameters" element="tns:AdaugaMasina" />
+  </wsdl:message>
+  <wsdl:message name="AdaugaMasinaSoapOut">
+    <wsdl:part name="parameters" element="tns:AdaugaMasinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ObtineMasiniSoapIn">
+    <wsdl:part name="parameters" element="tns:ObtineMasini" />
+  </wsdl:message>
+  <wsdl:message name="ObtineMasiniSoapOut">
+    <wsdl:part name="parameters" element="tns:ObtineMasiniResponse" />
+  </wsdl:message>
+  <wsdl:message name="StergeMasinaSoapIn">
+    <wsdl:part name="parameters" element="tns:StergeMasina" />
+  </wsdl:message>
+  <wsdl:message name="StergeMasinaSoapOut">
+    <wsdl:part name="parameters" element="tns:StergeMasinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ModificaMasinaSoapIn">
+    <wsdl:part name="parameters" element="tns:ModificaMasina" />
+  </wsdl:message>
+  <wsdl:message name="ModificaMasinaSoapOut">
+    <wsdl:part name="parameters" element="tns:ModificaMasinaResponse" />
+  </wsdl:message>
+  <wsdl:message name="CautaMasinaSoapIn">
+    <wsdl:part name="parameters" element="tns:CautaMasina" />
+  </wsdl:message>
+  <wsdl:message name="CautaMasinaSoapOut">
+    <wsdl:part name="parameters" element="tns:CautaMasinaResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService1Soap">
+    <wsdl:operation name="AdaugaMasina">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adaugă o mașină nouă în baza de date</wsdl:documentation>
+      <wsdl:input message="tns:AdaugaMasinaSoapIn" />
+      <wsdl:output message="tns:AdaugaMasinaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtineMasini">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returnează lista tuturor mașinilor din service</wsdl:documentation>
+      <wsdl:input message="tns:ObtineMasiniSoapIn" />
+      <wsdl:output message="tns:ObtineMasiniSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StergeMasina">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Șterge o mașină din baza de date folosind ID-ul</wsdl:documentation>
+      <wsdl:input message="tns:StergeMasinaSoapIn" />
+      <wsdl:output message="tns:StergeMasinaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificaMasina">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Modifică datele unei mașini existente</wsdl:documentation>
+      <wsdl:input message="tns:ModificaMasinaSoapIn" />
+      <wsdl:output message="tns:ModificaMasinaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CautaMasina">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Caută mașini după numărul de înmatriculare</wsdl:documentation>
+      <wsdl:input message="tns:CautaMasinaSoapIn" />
+      <wsdl:output message="tns:CautaMasinaSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService1Soap" type="tns:WebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AdaugaMasina">
+      <soap:operation soapAction="http://tempuri.org/AdaugaMasina" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtineMasini">
+      <soap:operation soapAction="http://tempuri.org/ObtineMasini" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StergeMasina">
+      <soap:operation soapAction="http://tempuri.org/StergeMasina" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificaMasina">
+      <soap:operation soapAction="http://tempuri.org/ModificaMasina" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CautaMasina">
+      <soap:operation soapAction="http://tempuri.org/CautaMasina" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService1Soap12" type="tns:WebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AdaugaMasina">
+      <soap12:operation soapAction="http://tempuri.org/AdaugaMasina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ObtineMasini">
+      <soap12:operation soapAction="http://tempuri.org/ObtineMasini" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StergeMasina">
+      <soap12:operation soapAction="http://tempuri.org/StergeMasina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificaMasina">
+      <soap12:operation soapAction="http://tempuri.org/ModificaMasina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CautaMasina">
+      <soap12:operation soapAction="http://tempuri.org/CautaMasina" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService1">
+    <wsdl:port name="WebService1Soap" binding="tns:WebService1Soap">
+      <soap:address location="https://localhost:44394/WebService1.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService1Soap12" binding="tns:WebService1Soap12">
+      <soap12:address location="https://localhost:44394/WebService1.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
